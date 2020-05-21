@@ -28,8 +28,7 @@ class Pizza extends Model
 
 
     protected $dates = ['deleted_at'];
-
-
+    protected $appends = ['in_cart', 'count', 'total'];
 
     public $fillable = [
         'title',
@@ -49,7 +48,7 @@ class Pizza extends Model
         'id' => 'integer',
         'title' => 'string',
         'image' => 'string',
-        'price' => 'string',
+        'price' => 'integer',
         'description' => 'string',
         'variations' => 'string',
         'trad_toppings' => 'string'
@@ -68,5 +67,16 @@ class Pizza extends Model
         'trad_toppings' => 'required'
     ];
 
-    
+    public function getInCartAttribute()
+    {
+        return $this->attributes['inCart'] = false;
+    }
+    public function getCountAttribute()
+    {
+        return $this->attributes['count'] = 0;
+    }
+    public function getTotalAttribute()
+    {
+        return $this->attributes['total'] = 0;
+    }
 }
