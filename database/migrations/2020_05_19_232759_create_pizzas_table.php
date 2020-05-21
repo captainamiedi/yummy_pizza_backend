@@ -17,7 +17,7 @@ class CreatePizzasTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('image');
-            $table->string('price');
+            $table->integer('price');
             $table->longText('description');
             $table->string('variations')->nullable();
             $table->string('trad_toppings');
